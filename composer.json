@@ -1,0 +1,13 @@
+{
+    "name": "tsdnv/mvc",
+    "description": "Self developed MVC framework",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Core\\": "Core/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
