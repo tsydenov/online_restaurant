@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>My HTML Page</title>
-</head>
+<?php
+require_once "App/Views/Pages/head.php";
+?>
 
 <body>
     <h1>This is a home page!</h1>
