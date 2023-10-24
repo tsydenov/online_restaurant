@@ -3,12 +3,13 @@
 namespace App;
 
 use App\Controllers\AppController;
+use Core\Core;
 
 include_once __DIR__ . "/Routes.php";
 
-class App
+class App implements Core
 {
-    public function start()
+    public static function start()
     {
         AppController::listen();
     }
