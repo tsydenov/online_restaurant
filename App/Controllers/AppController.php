@@ -12,6 +12,8 @@ class AppController implements Controller
         $uri = $_SERVER['REQUEST_URI'];
         $routes = Router::getRoutes();
 
+        // Ищем запрашиваемый uri среди имеющихся роутов 
+        // и подключаем нужную страницу
         foreach ($routes as $route) {
             if ($route['uri'] === $uri) {
                 require_once "App/Views/Pages/" . $route['page'] . ".php";
