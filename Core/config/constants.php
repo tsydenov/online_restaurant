@@ -8,7 +8,9 @@ function create_constants(string $dir)
         list($var, $value) = explode('=', $line);
         $var = str_replace(' ', '', $var);
         $value = str_replace(' ', '', $value);
-        define($var, $value);
+        $value = str_replace("\"", '', $value);
+        $value = str_replace("\n", '', $value);
+        $_ENV[$var] = $value;
     }
 
     fclose($envfile);
