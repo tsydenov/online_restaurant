@@ -7,6 +7,8 @@ use PDO;
 
 class Database
 {
+    private static $db;
+
     public static function connect()
     {
         $connection = null;
@@ -19,6 +21,12 @@ class Database
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-        return $connection;
+
+        self::$db =  $connection;
+    }
+
+    public static function getDb()
+    {
+        return self::$db;
     }
 }

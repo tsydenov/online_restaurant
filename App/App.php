@@ -15,7 +15,7 @@ class App implements Core
     public static function start()
     {
         Environ::create_constants($_SERVER['DOCUMENT_ROOT']);
-        $db = Database::connect();
+        Database::connect();
         Router::listen();
     }
 }

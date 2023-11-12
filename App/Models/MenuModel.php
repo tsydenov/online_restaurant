@@ -3,31 +3,32 @@
 namespace App\Models;
 
 use Core\Model\Model;
+use App\Config\Database;
+use \PDO;
 
-class MenuModel implements Model
+class MenuModel extends Model
 {
-    public static function getMenu($db, int $id)
+    public static function getMenu(int $id)
     {
-        $query = "SELECT * FROM Menu WHERE id=$id";
+        $db = Database::getDb();
 
-        $result = [];
-        $db_response = $db->query($query);
-        while ($row = $db_response->fetch()) {
-            $result[] = $row;
-        }
+        $query = $db->prepare("SELECT * FROM Menu WHERE id= :id");
+        $query->bindParam(':id', $id);
+        $query->execute();
+
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
     }
 
-    public static function getAllMenus($db)
+    public static function getAllMenus()
     {
-        $query = "SELECT * FROM Menu";
+        $db = Database::getDb();
 
-        $result = [];
-        $db_response = $db->query($query);
-        while ($row = $db_response->fetch()) {
-            $result[] = $row;
-        }
+        $query = $db->prepare("SELECT * FROM Menu");
+        $query->execute();
+
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
     }

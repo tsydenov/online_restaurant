@@ -3,8 +3,6 @@
 namespace App\Controllers;
 
 use Core\Controller\Controller;
-use Core\Route\Router;
-use Core\Utils\Request;
 
 class AppController implements Controller
 {
