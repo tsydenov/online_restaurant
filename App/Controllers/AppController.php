@@ -18,6 +18,6 @@ class AppController implements Controller
 
     private static function view($page)
     {
-        require_once "App/Views/Pages/" . $page . ".php";
+        require_once "App/Views/" . $page . ".php";
     }
 }

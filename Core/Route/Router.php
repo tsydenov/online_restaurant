@@ -27,10 +27,10 @@ class Router
             if ($route['uri'] === $uri) {
                 // require_once "App/Views/Pages/" . $route['page'] . ".php";
                 // die();
-                return $route['page'];
+                return 'Pages/' . $route['page'];
             }
         }
         // require_once "App/Views/Errors/404.php";
-        return '404';
+        return 'Errors/404';
     }
 }
