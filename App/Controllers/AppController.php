@@ -4,22 +4,20 @@ namespace App\Controllers;
 
 use Core\Controller\Controller;
 use Core\Route\Router;
+use Core\Utils\Request;
 
 class AppController implements Controller
 {
     public static function listen()
     {
-        $uri = $_SERVER['REQUEST_URI'];
-        $routes = Router::getRoutes();
+        $uri = Request::getUri();
+        $page = Router::getPage($uri);
 
-        // Ищем запрашиваемый uri среди имеющихся роутов 
-        // и подключаем нужную страницу
-        foreach ($routes as $route) {
-            if ($route['uri'] === $uri) {
-                require_once "App/Views/Pages/" . $route['page'] . ".php";
-                die();
-            }
-        }
-        require_once "App/Views/Errors/404.php";
+        self::view($page);
+    }
+
+    private static function view($page)
+    {
+        require_once "App/Views/Pages/" . $page . ".php";
     }
 }

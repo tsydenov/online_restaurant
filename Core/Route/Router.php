@@ -18,4 +18,19 @@ class Router
     {
         return self::$routes;
     }
+
+    public static function getPage($uri)
+    {
+        // Ищем запрашиваемый uri среди имеющихся роутов 
+        // и подключаем нужную страницу
+        foreach (self::$routes as $route) {
+            if ($route['uri'] === $uri) {
+                // require_once "App/Views/Pages/" . $route['page'] . ".php";
+                // die();
+                return $route['page'];
+            }
+        }
+        // require_once "App/Views/Errors/404.php";
+        return '404';
+    }
 }

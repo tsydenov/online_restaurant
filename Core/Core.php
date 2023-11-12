@@ -2,7 +2,7 @@
 
 namespace Core;
 
-include_once __DIR__ . "/config/constants.php";
+include_once __DIR__ . "/Utils/Environ.php";
 
 interface Core
 {
