@@ -11,7 +11,6 @@ class MenuController implements Controller
     {
         $data = MenuModel::getAllMenus();
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
-        // \dump($data);
         echo $data;
     }
 }

@@ -8,6 +8,6 @@ class AppController implements Controller
 {
     public static function render($page)
     {
-        require_once "App/Views/" . $page . ".php";
+        require_once "App/Views/Pages/" . $page . ".php";
     }
 }

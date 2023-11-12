@@ -16,7 +16,7 @@ class Router
         $routes = Route::getRoutes();
         foreach ($routes as $route) {
             if ($route['uri'] === $uri) {
-                $route['controller']::render('Pages/' . $route['page']);
+                $route['controller']::render($route['page']);
                 die();
             }
         }
