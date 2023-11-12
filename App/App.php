@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Controllers\AppController;
+use Core\Route\Router;
 use Core\Core;
 use App\Config\Database;
 use Core\Utils\Environ;
@@ -16,6 +16,6 @@ class App implements Core
     {
         Environ::create_constants($_SERVER['DOCUMENT_ROOT']);
         $db = Database::connect();
-        AppController::listen();
+        Router::listen();
     }
 }

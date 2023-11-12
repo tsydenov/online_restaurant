@@ -2,10 +2,15 @@
 
 namespace App;
 
-use Core\Route\Router;
+use App\Controllers\AppController;
+use Core\Route\Route;
 
 // Создаем роуты
-Router::register('/', 'home');
-Router::register('/signin', 'signin');
-Router::register('/signup', 'signup');
-Router::register('/menus', 'menus');
+
+
+Route::add(
+    $method = 'GET',
+    $uri = '/',
+    $controller = AppController::class,
+    $page = 'home'
+);

@@ -2,35 +2,24 @@
 
 namespace Core\Route;
 
+use Core\Route\Route;
+use Core\Utils\Request;
+use App\Controllers\AppController;
+
 class Router
 {
-    private static array $routes = [];
-
-    public static function register(string $uri, string $page)
+    public static function listen()
     {
-        self::$routes[] = [
-            "uri" => $uri,
-            "page" => $page
-        ];
-    }
+        $uri = Request::getUri();
+        $method = Request::getMethod();
 
-    public static function getRoutes(): array
-    {
-        return self::$routes;
-    }
-
-    public static function getPage($uri)
-    {
-        // Ищем запрашиваемый uri среди имеющихся роутов 
-        // и подключаем нужную страницу
-        foreach (self::$routes as $route) {
+        $routes = Route::getRoutes();
+        foreach ($routes as $route) {
             if ($route['uri'] === $uri) {
-                // require_once "App/Views/Pages/" . $route['page'] . ".php";
-                // die();
-                return 'Pages/' . $route['page'];
+                $route['controller']::render('Pages/' . $route['page']);
+                die();
             }
         }
-        // require_once "App/Views/Errors/404.php";
-        return 'Errors/404';
+        require_once "App/Views/Errors/404.php";
     }
 }

@@ -8,15 +8,7 @@ use Core\Utils\Request;
 
 class AppController implements Controller
 {
-    public static function listen()
-    {
-        $uri = Request::getUri();
-        $page = Router::getPage($uri);
-
-        self::view($page);
-    }
-
-    private static function view($page)
+    public static function render($page)
     {
         require_once "App/Views/" . $page . ".php";
     }

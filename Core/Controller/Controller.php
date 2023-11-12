@@ -4,5 +4,5 @@ namespace Core\Controller;
 
 interface Controller
 {
-    public static function listen();
+    public static function render(string $page);
 }
