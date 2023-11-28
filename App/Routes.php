@@ -20,3 +20,9 @@ Route::add(
     $controller = MenuController::class,
     $page = 'menus'
 );
+Route::add(
+    $method = 'GET',
+    $uri = '/menus/{id}',
+    $controller = MenuController::class,
+    $page = 'menus'
+);
